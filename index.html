@@ -1,81 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><Your Name></title>
-    <style>
-        body {
-            margin: 0;
-            font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
-            background: #0f172a;
-            color: #f1f5f9;
-            display: flex;
-            justify-content: center;
-            padding: 48px 16px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+<style>
+  :root {
+    --bg: #12181b;
+    --bg-alt: #182024;
+    --text: #eef2f1;
+    --muted: #9fb0ac;
+    --accent: #6fd6a8;
+    --accent-soft: #35443f;
+    --max-width: 760px;
+  }
 
-        main {
-            max-width: 480px;
-            width: 100%;
-            text-align: center;
-        }
+  * { box-sizing: border-box; }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
 
-        .tagline {
-            color: #94a3b8;
-            margin-top: 0;
-            margin-bottom: 32px;
-        }
+  .wrap {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-        .card {
-            display: block;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 16px;
-            text-decoration: none;
-            color: #f1f5f9;
-            transition: transform 0.15s ease, border-color 0.15s ease;
-        }
+  header.hero {
+    padding: 96px 0 64px;
+    border-bottom: 1px solid var(--accent-soft);
+  }
 
-        .card:hover {
-            transform: translateY(-2px);
-            border-color: #38bdf8;
-        }
+  .hero p.kicker {
+    margin: 0 0 12px;
+    color: var(--accent);
+    font-size: 1rem;
+  }
 
-        .card h2 {
-            margin: 0 0 4px;
-            font-size: 1.1rem;
-            color: #38bdf8;
-        }
+  .hero h1 {
+    margin: 0 0 16px;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
 
-        .card p {
-            margin: 0;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-    </style>
+  .hero p.tagline {
+    margin: 0;
+    max-width: 46ch;
+    color: var(--muted);
+    font-size: 1.15rem;
+  }
+
+  section {
+    padding: 56px 0;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+
+  section:last-of-type {
+    border-bottom: none;
+  }
+
+  section h2 {
+    margin: 0 0 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .info-card {
+    background: var(--bg-alt);
+    border: 1px solid var(--accent-soft);
+    border-radius: 12px;
+    padding: 28px 24px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .info-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  .info-card .label {
+    color: var(--accent);
+    font-size: 0.85rem;
+    margin: 0 0 10px;
+  }
+
+  .info-card .value {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .info-card .sub {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .placeholder-card {
+    background: var(--bg-alt);
+    border: 1px dashed var(--accent-soft);
+    border-radius: 8px;
+    padding: 24px;
+    color: var(--muted);
+  }
+
+  footer {
+    padding: 40px 0 64px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    .about-grid { grid-template-columns: 1fr; }
+    header.hero { padding: 64px 0 48px; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    header.hero h1 {
+      animation: rise 0.6s ease-out;
+    }
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
 </head>
 <body>
-    <main>
-        <h1><Your Name></h1>
-        <p class="tagline"><One current line: what you are building or learning right now.></p>
 
-        <a class="card" href="https://github.com/<your-username>">
-            <h2>GitHub Profile</h2>
-            <p>See who I am and what I am working on.</p>
-        </a>
+  <div class="wrap">
+    <header class="hero">
+      <p class="kicker">Portfolio</p>
+      <h1>Pung Jun Hin</h1>
+      <p class="tagline">A short line about who you are and what you're working on — swap this for your own intro.</p>
+    </header>
 
-        <a class="card" href="https://github.com/<your-username>/<project-repo-name>">
-            <h2>Repaired Project HAHHAHAHAA</h2>
-            <p>A real project, rewritten so it explains itself.</p>
-        </a>
-    </main>
+    <section id="about">
+      <h2>About</h2>
+      <div class="about-grid">
+        <div class="info-card">
+          <p class="label">School</p>
+          <p class="value">SMK Chong Hwa</p>
+        </div>
+        <div class="info-card">
+          <p class="label">Date of Birth</p>
+          <p class="value">October 25</p>
+          <p class="sub">2010</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="placeholder-card">
+        Add your projects here — a title, a short description, and a link for each one.
+      </div>
+    </section>
+
+    <footer>
+      <p>Built by Pung Jun Hin · <a href="#" style="color: var(--accent);">GitHub</a></p>
+    </footer>
+  </div>
+
 </body>
 </html>
